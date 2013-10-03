@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block custom_head_script %}
+<script src="/static/start.js"></script>
+{% endblock %}
+
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
@@ -8,8 +12,6 @@
 
 {% block custom_body_script %}
 <script>
-    $( document ).ready( function() {
-        console.log("Homepage Ready!");
-    });
+    $( document ).ready( onReady );
 </script>
 {% endblock %}
