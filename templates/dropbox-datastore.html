@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block custom_head_script %}
+<script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
+{% endblock %}
+
+{% block title %}
+Dropbox Datastore JavaScript Test
+{% endblock %}
+
+{% block content %}
+<h1>Dropbox Datastore Test</h1>
+<button id="btnAuth">Click to link to your Dropbox account</button>
+<button id="btnSignout">Sign Out</button>
+<button id="btnCheckAuth">Check Authentication Status</button>
+{% endblock %}
+
+{% block custom_body_script %}
+<script>
+    $( document ).ready( function() {
+
+        console.log( "Dropbox Datastore ready !" );
+
+        var $btnAuth = $( "#btnAuth" );
+        var $btnSignout = $( "#btnSignout" );
+        var $btnCheckAuth = $( "#btnCheckAuth" );
+
+        var APP_KEY = "w7hk75aqd7njj4j";
+
+        var client = new Dropbox.Client( { key: APP_KEY } );
+
+        client.authenticate( { interactive: false }, function( error ) {
+            if( error )
+            {
+                console.log( 'Authentication Error: ' + error );
+                alert( 'Authentication Error: ' + error );
+                window.location.replace("/dropbox-datastore");
+            }
+        } );
+
+        $btnCheckAuth.click( function(e) {
+            console.log( "Authenticated: " + client.isAuthenticated() );
+        } )
+
+        if( !client.isAuthenticated() )
+        {
+            $btnAuth.click( function(e) {
+                client.authenticate();
+            } );
+
+            $btnSignout.prop( "disabled", true );
+            $btnSignout.find( "span" ).text( "Not Authenticated Yet" );
+        }
+        else
+        {
+            $btnSignout.click( function(e) {
+                client.signOut( function( error ) {
+                    if( error )
+                    {
+                        console.log( 'Signout Error: ' + error );
+                        alert( 'Signout Error: ' + error );
+                    }
+                    window.location.replace("/dropbox-datastore");
+                } );
+            } );
+
+            $btnAuth.prop( "disabled", true );
+            $btnAuth.find( "span" ).text( "Already Authenticated" );
+
+            client.getAccountInfo( function(error, info, obj) {
+                var list = [ obj.display_name, obj.email, obj.country ];
+                console.log( list.join(";") );
+                console.log( obj );
+            } );
+        }       
+        
+
+        /*
+        var datastoreManager = client.getDatastoreManager();
+        datastoreManager.openDefaultDatastore( function( error, datastore ) {
+            if( error )
+            {
+                console.log( "Opening Error: " + error );
+                alert( "Opening Error: " + error );
+            }
+            //......
+            datastore.recordsChanged.addListener( function(e) {
+                console.log( 'records changed: ', e.affectedRecordsForTable( 'tasks' ) );
+            } );
+
+            var tblTasks = datastore.getTable( 'tasks' );
+
+            var firstTask = tblTasks.insert( { taskname:'Buy books', completed: false, created: new Date() } );
+
+            var taskname = firstTask.get( 'taskname' );
+
+            firstTask.set( 'taskname', 'What to do?' );
+
+            firstTask.deleteRecord();
+
+            var results = tblTasks.query( { completed: false } );
+
+            var firstResult = results[0];
+            console.log( firstResult.get( 'id' ) + " " + firstResult.get( 'taskname' ) + " " + firstResult.get( 'completed' ) + " " + firstResult.get( 'created' ) );
+ 
+            //......
+        } );
+        */
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<h1>Start Page</h1>
+{% endblock %}
+
+{% block custom_body_script %}
+<script>
+    $( document ).ready( function() {
+        console.log("Homepage Ready!");
+    });
+</script>
+{% endblock %}
