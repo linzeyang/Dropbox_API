@@ -4,3 +4,12 @@
 	font-size: 1.3em;
 	margin: 0px 15px;
 }
+
+/***************************/
+ .header-section {
+ 	color:red;
+ }
+
+ table, th, tr, td {
+ 	border: 1px solid;
+ }

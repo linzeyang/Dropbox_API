@@ -14,62 +14,61 @@ Dropbox Chooser Test
 
 {% block content %}
 
-<div id="div-chooser">
-    <div id="div-db-chooser">
-        <h2 style="color:red;">Dropbox's own chooser button</h2>
-        <form>
-            <select name="slt1" id="slt1">
-                <option value="false">Single</option>
-                <option value="true" selected="selected">Multiple</option>
-            </select><br /><br />
-            <input type="dropbox-chooser" 
-                name="selected-file" 
-                id="db-chooser" 
-                style="visibility: hidden;" 
-                data-link-type="preview" 
-                data-multiselect="true" />
-        </form><br />
-        <table id="tbl1" border="1px">
-            <tr>
-                <th>Name</th>
-                <th>Preview Link</th>
-                <th>Bytes</th>
-                <th>Icon</th>
-                <th>Thumbnail</th>
-            </tr>
-            <tr class="fileline">
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    </div><hr />
+<div id="div-db-chooser">
+    <h2 class="header-section">Dropbox's own chooser button</h2>
+    <form>
+        <select name="select-db-chooser" id="select-db-chooser">
+            <option value="false">Single</option>
+            <option value="true" selected="selected">Multiple</option>
+        </select><br /><br />
+        <input type="dropbox-chooser" 
+            name="selected-file" 
+            id="db-chooser" 
+            style="visibility: hidden;" 
+            data-link-type="preview" 
+            data-multiselect="true" />
+    </form><br />
+    <table id="table-db-chooser">
+        <tr>
+            <th>Name</th>
+            <th>Preview Link</th>
+            <th>Bytes</th>
+            <th>Icon</th>
+            <th>Thumbnail</th>
+        </tr>
+        <tr class="fileline">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div><hr />
 
-    <div id="div-std-chooser">
-        <h2 style="color:red;">HTML standard button</h2>
-        <form>
-            <input type="radio" name="linktype" id="radio1" value="preview" checked="checked">
-            <label for="radio1">Preview Link</label><br />
-            <input type="radio" name="linktype" id="radio2" value="direct">
-            <label for="radio2">Direct Link</label>
-        </form><br />
-        <button  class="btn btn-primary" id="db-chooser-button">Click to choose file from Dropbox</button><br /><br />
-        <table id="tbl2" border="1px">
-            <tr>
-                <th>Name</th>
-                <th>Link</th>
-                <th>Bytes</th>
-            </tr>
-            <tr class="fileline">
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    </div>
+<div id="div-std-chooser">
+    <h2 class="header-section">HTML standard button</h2>
+    <form>
+        <input type="radio" name="linktype" id="radio1" value="preview" checked="checked">
+        <label for="radio1">Preview Link</label><br />
+        <input type="radio" name="linktype" id="radio2" value="direct">
+        <label for="radio2">Direct Link</label>
+    </form><br />
+    <button  class="btn btn-primary" id="db-chooser-button">Click to choose file from Dropbox</button><br /><br />
+    <table id="table-std-chooser">
+        <tr>
+            <th>Name</th>
+            <th>Link</th>
+            <th>Bytes</th>
+        </tr>
+        <tr class="fileline">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
 </div>
+
 {% endblock %}
 
 {% block custom_body_script %}
