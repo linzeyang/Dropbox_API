@@ -11,9 +11,12 @@ Dropbox Datastore JavaScript Test
 
 {% block content %}
 <h1>Dropbox Datastore Test</h1>
-<button class="btn btn-primary" id="btnAuth">Click to link to your Dropbox account</button>
-<button class="btn btn-primary" id="btnSignout">Sign Out</button>
-<button class="btn btn-primary" id="btnCheckAuth">Check Authentication Status</button>
+<button class="btn btn-primary" id="button-auth">Click to link to your Dropbox account</button>
+<button class="btn btn-primary" id="button-sign-out">Sign Out</button>
+<button class="btn btn-primary" id="button-check-auth">Check Authentication Status</button>
+<p id="auth-info"></p>
+<hr />
+<p id="ds-info"></p>
 {% endblock %}
 
 {% block custom_body_script %}

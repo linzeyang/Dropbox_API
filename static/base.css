@@ -17,3 +17,12 @@
  .filepath {
  	width: 50%;
  }
+
+ #auth-info, #ds-info {
+ 	margin: 20px;
+ 	height: 30px;
+ 	width: auto;
+ 	color: red;
+ 	font-size: 1.3em;
+ 	font-weight: bold;
+ }

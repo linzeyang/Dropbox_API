@@ -1,11 +1,12 @@
 function onReady() {
 
-    console.log( "Dropbox Datastore ready !" );
+    var $buttonAuth = $( "#button-auth" );
+    var $buttonSignOut = $( "#button-sign-out" );
+    var $buttonCheckAuth = $( "#button-check-auth" );
 
-    var $btnAuth = $( "#btnAuth" );
-    var $btnSignout = $( "#btnSignout" );
-    var $btnCheckAuth = $( "#btnCheckAuth" );
-
+    var $authInfo = $( "#auth-info" );
+    var $dsInfo = $( "#ds-info" );
+    
     var APP_KEY = "w7hk75aqd7njj4j";
 
     var client = new Dropbox.Client( { key: APP_KEY } );
@@ -13,45 +14,55 @@ function onReady() {
     client.authenticate( { interactive: false }, function( error ) {
         if( error )
         {
-            console.log( 'Authentication Error: ' + error );
-            alert( 'Authentication Error: ' + error );
+            $authInfo.html( 'Authentication Error: ' + error );
             window.location.replace("/dropbox-datastore");
         }
     } );
 
-    $btnCheckAuth.click( function(e) {
-        console.log( "Authenticated: " + client.isAuthenticated() );
+    $buttonCheckAuth.click( function(e) {
+        $authInfo.html( "Authenticated: " + client.isAuthenticated() );
     } )
 
     if( !client.isAuthenticated() )
     {
-        $btnAuth.click( function(e) {
+        $buttonAuth.click( function(e) {
             client.authenticate();
         } );
 
-        $btnSignout.prop( "disabled", true );
-        $btnSignout.find( "span" ).text( "Not Authenticated Yet" );
+        $buttonSignOut.prop( "disabled", true );
+        $buttonSignOut.text( "Not Authenticated Yet" );
     }
     else
     {
-        $btnSignout.click( function(e) {
+        $buttonSignOut.click( function(e) {
             client.signOut( function( error ) {
                 if( error )
                 {
-                    console.log( 'Signout Error: ' + error );
-                    alert( 'Signout Error: ' + error );
+                    $authInfo.html( 'Signout Error: ' + error );
                 }
                 window.location.replace("/dropbox-datastore");
             } );
         } );
 
-        $btnAuth.prop( "disabled", true );
-        $btnAuth.find( "span" ).text( "Already Authenticated" );
+        $buttonAuth.prop( "disabled", true );
+        $buttonAuth.text( "Already Authenticated" );
 
         client.getAccountInfo( function(error, info, obj) {
             var list = [ obj.display_name, obj.email, obj.country ];
-            console.log( list.join(";") );
-            console.log( obj );
+            $authInfo.html( list.join(";") );
         } );
     }
+
+    var datastoreManager = client.getDatastoreManager();
+    datastoreManager.openDefaultDatastore(function (error, datastore) {
+        if (error) {
+            $dsInfo.text('Error opening default datastore: ' + error);
+        }
+        else
+        {
+            $dsInfo.text('Default datastore opened successfully !');
+        }
+
+        // Now you have a datastore. The next few examples can be included here.
+    });
 }
