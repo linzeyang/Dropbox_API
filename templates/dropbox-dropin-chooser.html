@@ -3,42 +3,16 @@
 {% block custom_head_script %}
 <script src="https://www.dropbox.com/static/api/1/dropins.js" 
         id="dropboxjs" 
-        data-app-key="ed8g4l0hstin27y">
-</script>
-
-<script src="https://www.dropbox.com/static/api/1/dropins.js" 
-        id="dropboxjs" 
         data-app-key="c5wk36o7hmtygwm">
 </script>
-<script src="/static/dropbox-dropin.js"></script>
+<script src="/static/dropbox-dropin-chooser.js"></script>
 {% endblock %}
 
 {% block title %}
-Dropbox Saver / Chooser Test
+Dropbox Chooser Test
 {% endblock %}
 
 {% block content %}
-<div id="div-saver">
-    <div id="div-db-saver">
-        <h2 style="color:red;">Dropbox's own saver button</h2>
-        <p>With URL (only one file)</p>
-        <input type="text" class="filepath" style="width:50%;" />
-        <a href="" class="dropbox-saver"></a>
-        <p>With options (one or more files)</p>
-        <input type="text" class="filepath" style="width:50%;" />
-        <span id="programmatic"></span>
-    </div><hr />
-
-    <div id="div-std-saver">
-        <h2 style="color:red;">HTML standard button</h2>
-        <p>With URL and optional filename (only one file)</p>
-        <input type="text" class="filepath" style="width:50%;" />
-        <button class="btn btn-primary" id="db-saver-button-1">Save to Dropbox</button>
-        <p>With options (one or more files)</p>
-        <input type="text" class="filepath" style="width:50%;" />
-        <button class="btn btn-primary" id="db-saver-button-2">Save to Dropbox</button>
-    </div>
-</div><hr />
 
 <div id="div-chooser">
     <div id="div-db-chooser">

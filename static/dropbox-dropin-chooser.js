@@ -1,6 +1,6 @@
 function onReady() {
 
-    console.log("Dropbox Drop-ins Ready!");
+    console.log("Dropbox Drop-ins Chooser Ready!");
 
     if( Dropbox.isBrowserSupported() )
     {
@@ -10,35 +10,6 @@ function onReady() {
     {
         console.log( "Your browser does not support Dropbox chooser !" );
     }
-
-    //*********** Dropbox's own saver button ***************
-    var saverOptions = {
-        files: [ { "url" : "" } ],
-        success: function() { console.log( "The file(s) are added to your Dropbox !" ); },
-        progress: function(progress) { console.log( "Current progress: " + progress * 100 + "%" ); },
-        cancel: function() { console.log( "Canceled !" ); },
-        error: function(err) { console.log( err ); }
-    };
-
-    var buttonDbSaver = Dropbox.createSaveButton(saverOptions);
-    $( "#programmatic" ).append( $( buttonDbSaver ) );
-
-    //********************************************************
-
-    //*********** HTML standard button ***************
-    var $buttonSaver1 = $( "#db-saver-button-1" );
-    
-    $buttonSaver1.click( function(e) {
-        Dropbox.save( $( ".filepath" ).eq(2).val() );
-    } );
-
-    var $buttonSaver2 = $( "#db-saver-button-2" );
-    
-    $buttonSaver2.click( function(e) {
-        Dropbox.save( saverOptions );
-    } );
-
-    //********************************************************
 
     //*********** Dropbox's own chooser button ***************
     var buttonDbChooser = document.getElementById( "db-chooser" );
@@ -74,8 +45,6 @@ function onReady() {
         });
 
         $( ".filepath" ).val( e.files[0].link );
-        $( "#div-db-saver a" ).attr( "href", e.files[0].link );
-        saverOptions["files"][0]["url"] = e.files[0].link;
 
     }, false);
 
@@ -108,8 +77,6 @@ function onReady() {
             } );
 
             $( ".filepath" ).val( files[0]["link"] );
-            $( "#div-db-saver a" ).attr( "href", files[0]["link"] );
-            saverOptions["files"][0]["url"] = files[0]["link"];
         },
         cancel: function() {
             console.log( "Canceled" );
