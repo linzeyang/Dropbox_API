@@ -1,7 +1,5 @@
 function onReady() {
 
-    console.log("Dropbox Drop-ins Saver Ready!");
-
     if( Dropbox.isBrowserSupported() )
     {
         console.log( "Dropbox chooser is supported by your browser !" );
@@ -9,11 +7,19 @@ function onReady() {
     else
     {
         console.log( "Your browser does not support Dropbox chooser !" );
+        alert( "Your browser does not support Dropbox chooser !" );
     }
 
     //*********** Dropbox's own saver button ***************
     var saverOptions = {
-        files: [ { "url" : "" } ],
+        files: [
+            { 
+                "url" : "https://www.google.ie/images/srpr/logo4w.png" 
+            }, 
+            {
+                "url" : "http://www.bing.com/az/hprichbg/rb/Bioluminescence_ROW11273288857_1366x768.jpg" 
+            }
+        ],
         success: function() { console.log( "The file(s) are added to your Dropbox !" ); },
         progress: function(progress) { console.log( "Current progress: " + progress * 100 + "%" ); },
         cancel: function() { console.log( "Canceled !" ); },
@@ -29,7 +35,7 @@ function onReady() {
     var $buttonSaver1 = $( "#db-saver-button-1" );
     
     $buttonSaver1.click( function(e) {
-        Dropbox.save( $( ".filepath" ).eq(2).val() );
+        Dropbox.save( $( "#div-std-saver .filepath" ).eq(0).val() );
     } );
 
     var $buttonSaver2 = $( "#db-saver-button-2" );

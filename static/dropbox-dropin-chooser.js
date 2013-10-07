@@ -7,6 +7,7 @@ function onReady() {
     else
     {
         console.log( "Your browser does not support Dropbox chooser !" );
+        alert( "Your browser does not support Dropbox chooser !" );
     }
 
     //*********** Dropbox's own chooser button ***************

@@ -13,3 +13,7 @@
  table, th, tr, td {
  	border: 1px solid;
  }
+
+ .filepath {
+ 	width: 50%;
+ }
