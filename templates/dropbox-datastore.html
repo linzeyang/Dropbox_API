@@ -17,6 +17,21 @@ Dropbox Datastore JavaScript Test
 <p id="auth-info"></p>
 <hr />
 <p id="ds-info"></p>
+<input type="text" id="input_task_name" placeholder="Enter task name here" /><br />
+<label for="select_complete">Completed ?</label>
+<select id="select_complete">
+	<option value="false">No</option>
+	<option value="true">Yes</option>
+</select><br />
+<button class="btn btn-info" id="button-add-task">Add task</button>
+<table id="table_tasks">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Completed?</th>
+		<th>Time</th>
+	</tr>
+</table>
 {% endblock %}
 
 {% block custom_body_script %}

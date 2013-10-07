@@ -6,6 +6,7 @@ function onReady() {
 
     var $authInfo = $( "#auth-info" );
     var $dsInfo = $( "#ds-info" );
+    var $tableTasks = $( "#table_tasks" );
     
     var APP_KEY = "w7hk75aqd7njj4j";
 
@@ -51,18 +52,46 @@ function onReady() {
             var list = [ obj.display_name, obj.email, obj.country ];
             $authInfo.html( list.join(";") );
         } );
+
+        var datastoreManager = client.getDatastoreManager();
+        datastoreManager.openDefaultDatastore(function (error, datastore) {
+            if (error) {
+                $dsInfo.text('Error opening default datastore: ' + error);
+            }
+            else
+            {
+                $dsInfo.text('Default datastore opened successfully !');
+            }
+
+            // Now you have a datastore. The next few examples can be included here.
+            var taskTable = datastore.getTable('tasks');
+
+            var taskList = taskTable.query();
+            taskList.forEach( function( elem ) {
+                var taskLine = "<tr><td>" + elem.getId() + "</td><td>" + elem.get('taskname') + "</td><td>" + elem.get('completed') + "</td><td>" + elem.get('created') + "</td></tr>";
+                $tableTasks.append(taskLine);
+            });
+
+            $buttonAddTask = $( "#button-add-task" );
+            $buttonAddTask.click(function(event) {
+                var name = $( "#input_task_name" ).val();
+                var status = ( $( "#select_complete" ).val() === 'true' );
+                var date = new Date();
+
+                taskTable.insert(
+                    {
+                        taskname: name,
+                        completed: status,
+                        created: date
+                    }
+                );
+
+                $( "#input_task_name" ).val("");
+            });
+
+            datastore.recordsChanged.addListener(function (event) {
+                $dsInfo.text('records changed:' + event.affectedRecordsForTable('tasks'));
+            });
+        });
     }
-
-    var datastoreManager = client.getDatastoreManager();
-    datastoreManager.openDefaultDatastore(function (error, datastore) {
-        if (error) {
-            $dsInfo.text('Error opening default datastore: ' + error);
-        }
-        else
-        {
-            $dsInfo.text('Default datastore opened successfully !');
-        }
-
-        // Now you have a datastore. The next few examples can be included here.
-    });
 }
