@@ -7,22 +7,18 @@
 
 /***************************/
  .header-section {
- 	color:red;
+ 	color: red;
  }
 
- table, th, tr, td {
- 	border: 1px solid;
- }
-
- .filepath {
+.filepath {
  	width: 50%;
- }
+}
 
- #auth-info, #ds-info {
+#auth-info, #ds-info {
  	margin: 20px;
  	height: 30px;
  	width: auto;
  	color: red;
  	font-size: 1.3em;
  	font-weight: bold;
- }
+}

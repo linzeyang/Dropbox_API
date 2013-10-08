@@ -1,11 +1,11 @@
 function onReady() {
 
-    var $buttonAuth = $( "#button-auth" );
-    var $buttonSignOut = $( "#button-sign-out" );
-    var $buttonCheckAuth = $( "#button-check-auth" );
+    var $buttonAuth = $( "#button_auth" );
+    var $buttonSignOut = $( "#button_sign_out" );
+    var $buttonCheckAuth = $( "#button_check_auth" );
 
-    var $authInfo = $( "#auth-info" );
-    var $dsInfo = $( "#ds-info" );
+    var $authInfo = $( "#auth_info" );
+    var $dsInfo = $( "#ds_info" );
     var $tableTasks = $( "#table_tasks" );
     
     var APP_KEY = "w7hk75aqd7njj4j";
@@ -72,7 +72,7 @@ function onReady() {
                 $tableTasks.append(taskLine);
             });
 
-            $buttonAddTask = $( "#button-add-task" );
+            $buttonAddTask = $( "#button_add_task" );
             $buttonAddTask.click(function(event) {
                 var name = $( "#input_task_name" ).val();
                 var status = ( $( "#select_complete" ).val() === 'true' );

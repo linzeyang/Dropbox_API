@@ -11,20 +11,20 @@ Dropbox Datastore JavaScript Test
 
 {% block content %}
 <h1>Dropbox Datastore Test</h1>
-<button class="btn btn-primary" id="button-auth">Click to link to your Dropbox account</button>
-<button class="btn btn-primary" id="button-sign-out">Sign Out</button>
-<button class="btn btn-primary" id="button-check-auth">Check Authentication Status</button>
-<p id="auth-info"></p>
+<button class="btn btn-primary" id="button_auth">Click to link to your Dropbox account</button>
+<button class="btn btn-primary" id="button_sign_out">Sign Out</button>
+<button class="btn btn-primary" id="button_check_auth">Check Authentication Status</button>
+<p id="auth_info"></p>
 <hr />
-<p id="ds-info"></p>
+<p id="ds_info"></p>
 <input type="text" id="input_task_name" placeholder="Enter task name here" /><br />
 <label for="select_complete">Completed ?</label>
 <select id="select_complete">
 	<option value="false">No</option>
 	<option value="true">Yes</option>
 </select><br />
-<button class="btn btn-info" id="button-add-task">Add task</button>
-<table id="table_tasks">
+<button class="btn btn-danger" id="button_add_task">Add task</button>
+<table class="table table-striped" id="table_tasks">
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
