@@ -32,13 +32,13 @@ function onReady() {
     //********************************************************
 
     //*********** HTML standard button ***************
-    var $buttonSaver1 = $( "#db-saver-button-1" );
+    var $buttonSaver1 = $( "#db_saver_button-1" );
     
     $buttonSaver1.click( function(e) {
-        Dropbox.save( $( "#div-std-saver .filepath" ).eq(0).val() );
+        Dropbox.save( $( "#div_std_saver .filepath" ).eq(0).val() );
     } );
 
-    var $buttonSaver2 = $( "#db-saver-button-2" );
+    var $buttonSaver2 = $( "#db_saver_button_2" );
     
     $buttonSaver2.click( function(e) {
         Dropbox.save( saverOptions );

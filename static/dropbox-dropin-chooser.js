@@ -12,13 +12,13 @@ function onReady() {
 
     //*********** Dropbox's own chooser button ***************
 
-    var buttonDbChooser = document.getElementById( "db-chooser" );
+    var buttonDbChooser = document.getElementById( "db_chooser" );
     
-    $( "#select-db-chooser" ).change( function(e) {
-        $( buttonDbChooser ).attr( "data-multiselect", $( "#select-db-chooser" ).val() );
+    $( "#select_db_chooser" ).change( function(e) {
+        $( buttonDbChooser ).attr( "data-multiselect", $( "#select_db_chooser" ).val() );
     } );
 
-    var $tableDbChooser = $( "#table-db-chooser" );
+    var $tableDbChooser = $( "#table_db_chooser" );
 
     buttonDbChooser.addEventListener( "DbxChooserSuccess", function(e) {
         $tableDbChooser.find( ".fileline" ).remove();
@@ -53,9 +53,9 @@ function onReady() {
 
     //*********** HTML standard button ***********************
 
-    var $buttonChooser = $( "#db-chooser-button" );
+    var $buttonChooser = $( "#db_chooser_button" );
     
-    var $tableStdChooser = $( "#table-std-chooser" );
+    var $tableStdChooser = $( "#table_std_chooser" );
 
     var chooserOptions = {
         linkType: "preview",
@@ -80,8 +80,8 @@ function onReady() {
         }
     };
 
-    $( "#div-std-chooser input[type='radio']" ).change( function(e) {
-        chooserOptions["linkType"] = $( "#div-std-chooser input[type='radio']:checked" ).val();
+    $( "#div_std_chooser input[type='radio']" ).change( function(e) {
+        chooserOptions["linkType"] = $( "#div_std_chooser input[type='radio']:checked" ).val();
     });
 
     $buttonChooser.click( function( event ) {

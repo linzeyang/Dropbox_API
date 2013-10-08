@@ -14,21 +14,21 @@ Dropbox Chooser Test
 
 {% block content %}
 
-<div id="div-db-chooser">
+<div id="div_db_chooser">
     <h2 class="header-section">Dropbox's own chooser button</h2>
     <form>
-        <select name="select-db-chooser" id="select-db-chooser">
+        <select name="select-db-chooser" id="select_db_chooser">
             <option value="false">Single</option>
             <option value="true" selected="selected">Multiple</option>
         </select><br /><br />
         <input type="dropbox-chooser" 
             name="selected-file" 
-            id="db-chooser" 
+            id="db_chooser" 
             style="visibility: hidden;" 
             data-link-type="preview" 
             data-multiselect="true" />
     </form><br />
-    <table id="table-db-chooser">
+    <table id="table_db_chooser">
         <tr>
             <th>Name</th>
             <th>Preview Link</th>
@@ -46,7 +46,7 @@ Dropbox Chooser Test
     </table>
 </div><hr />
 
-<div id="div-std-chooser">
+<div id="div_std_chooser">
     <h2 class="header-section">HTML standard button</h2>
     <form>
         <input type="radio" name="linktype" id="radio1" value="preview" checked="checked">
@@ -54,8 +54,8 @@ Dropbox Chooser Test
         <input type="radio" name="linktype" id="radio2" value="direct">
         <label for="radio2">Direct Link</label>
     </form><br />
-    <button  class="btn btn-primary" id="db-chooser-button">Click to choose file from Dropbox</button><br /><br />
-    <table id="table-std-chooser">
+    <button  class="btn btn-primary" id="db_chooser_button">Click to choose file from Dropbox</button><br /><br />
+    <table id="table_std_chooser">
         <tr>
             <th>Name</th>
             <th>Link</th>
