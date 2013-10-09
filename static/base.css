@@ -1,24 +1,24 @@
 /* base.css */
 
 #nav a {
-	font-size: 1.3em;
-	margin: 0px 15px;
+    font-size: 1.3em;
+    margin: 0px 15px;
 }
 
 /***************************/
- .header-section {
- 	color: red;
- }
+.header-section {
+    color: red;
+}
 
 .filepath {
- 	width: 50%;
+    width: 50%;
 }
 
 #auth-info, #ds-info {
- 	margin: 20px;
- 	height: 30px;
- 	width: auto;
- 	color: red;
- 	font-size: 1.3em;
- 	font-weight: bold;
+    margin: 20px;
+    height: 30px;
+    width: auto;
+    color: red;
+    font-size: 1.3em;
+    font-weight: bold;
 }
