@@ -1,11 +1,12 @@
-{% extends "base.html" %}
+{% extends "dropbox_api/base.html" %}
+{% load staticfiles %}
 
 {% block custom_head_script %}
 <script src="https://www.dropbox.com/static/api/1/dropins.js" 
         id="dropboxjs" 
         data-app-key="c5wk36o7hmtygwm">
 </script>
-<script src="/static/dropbox-dropin-chooser.js"></script>
+<script src="{% static 'dropbox_api/dropbox-dropin-chooser.js' %}"></script>
 {% endblock %}
 
 {% block title %}

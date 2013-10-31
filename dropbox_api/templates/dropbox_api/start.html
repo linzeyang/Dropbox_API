@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "dropbox_api/base.html" %}
+{% load staticfiles %}
 
 {% block custom_head_script %}
-<script src="/static/start.js"></script>
+<script src="{% static 'dropbox_api/start.js' %}"></script>
 {% endblock %}
 
 {% block title %}Homepage{% endblock %}

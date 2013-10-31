@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'dropbox_api/base.html' %}
+{% load staticfiles %}
 
 {% block custom_head_script %}
 <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js"></script>
-<script src="/static/dropbox-datastore.js"></script>
+<script src="{% static 'dropbox_api/dropbox-datastore.js' %}"></script>
 {% endblock %}
 
 {% block title %}
