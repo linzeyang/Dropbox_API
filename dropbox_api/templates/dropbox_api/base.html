@@ -17,13 +17,13 @@
     <title>{% block title %}Fill Page Title Here{% endblock %}</title>
 </head>
 <body>
-    <div id="mainwrapper">
-        <div id="nav">
+    <div id="mainwrapper" class="container">
+        <nav id="nav">
             <a href="/">Home</a>
-            <a href="/dropbox-dropin-chooser">Dropbox Drop-ins Chooser</a>
-            <a href="/dropbox-dropin-saver">Dropbox Drop-ins Saver</a>
-            <a href="/dropbox-datastore">Dropbox Datastore</a>
-        </div>
+            <a href="/dropin-chooser/">Dropbox Drop-ins Chooser</a>
+            <a href="/dropin-saver/">Dropbox Drop-ins Saver</a>
+            <a href="/datastore-js/">Dropbox Datastore in JavaScript</a>
+        </nav>
         {% block content %}
         <p>Fill Main Content Here</p>
         {% endblock %}

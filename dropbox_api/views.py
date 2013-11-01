@@ -4,11 +4,11 @@ from django.shortcuts import render
 def start(request):
     return render(request, 'dropbox_api/start.html')
 	
-def dropbox_dropin_chooser(request):
-	return render(request, 'dropbox_api/dropbox-dropin-chooser.html')
+def dropin_chooser(request):
+	return render(request, 'dropbox_api/dropin-chooser.html')
 
-def dropbox_dropin_saver(request):
-	return render(request, 'dropbox_api/dropbox-dropin-saver.html')
+def dropin_saver(request):
+	return render(request, 'dropbox_api/dropin-saver.html')
 
-def dropbox_datastore(request):
-	return render(request, 'dropbox_api/dropbox-datastore.html')
+def datastore_js(request):
+	return render(request, 'dropbox_api/datastore-js.html')
