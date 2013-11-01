@@ -12,3 +12,6 @@ def dropin_saver(request):
 
 def datastore_js(request):
 	return render(request, 'dropbox_api/datastore-js.html')
+
+def datastore_python(request):
+    return render(request, 'dropbox_api/datastore-python.html')

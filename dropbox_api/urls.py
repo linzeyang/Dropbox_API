@@ -16,6 +16,7 @@ urlpatterns = patterns('dropbox_api.views',
     url(r'^dropin-chooser/$', 'dropin_chooser', name="dropin_chooser"),
     url(r'^dropin-saver/$', 'dropin_saver', name="dropin_saver"),
     url(r'^datastore-js/$', 'datastore_js', name="datastore_js"),
+    url(r'^datastore-python/$', 'datastore_python', name="datastore_python"),
     
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
